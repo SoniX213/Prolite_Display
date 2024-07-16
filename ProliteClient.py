@@ -2,6 +2,9 @@ import socket
 import tkinter as tk
 from tkinter import messagebox
 
+#Set Defaults
+DEFAULT_ID = '01'
+DEFAULT_PORT = '9999'
 def send_message():
     message = message_entry.get()
     idxx = id_var.get()
@@ -47,6 +50,7 @@ port_label = tk.Label(frame, text="Server Port:")
 port_label.grid(row=1, column=0, pady=5)
 
 port_entry = tk.Entry(frame)
+port_entry.insert(0, str(DEFAULT_PORT))
 port_entry.grid(row=1, column=1, pady=5)
 
 # Connect button
@@ -57,7 +61,7 @@ connect_button.grid(row=2, column=1, pady=10)
 id_label = tk.Label(frame, text="Select ID:")
 id_label.grid(row=3, column=0, pady=5)
 
-id_var = tk.StringVar()
+id_var = tk.StringVar(value=DEFAULT_ID)
 id_menu = tk.OptionMenu(frame, id_var, '00', '01', '02', '03', '04', '05')  # Add more IDs as needed
 id_menu.grid(row=3, column=1, pady=5)
 
